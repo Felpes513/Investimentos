@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: mysql:8.0 # Recomendo especificar a versão
+    container_name: investimentos-mysql-1 # Nome do container
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 2210
+      MYSQL_DATABASE: Agregador_de_Investimentos
+      MYSQL_ROOT_PASSWORD: 2210
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
