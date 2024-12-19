@@ -1,4 +1,15 @@
 package part.spring.agregadordeinvestimentos.controller;
 
-public record CreateUserDto(String username, String email, String password) {
+import org.antlr.v4.runtime.misc.NotNull;
+
+public record CreateUserDto(
+
+        @NotNull
+        String username,
+
+        @NotNull
+        String email,
+
+        @NotNull
+        String password) {
 }

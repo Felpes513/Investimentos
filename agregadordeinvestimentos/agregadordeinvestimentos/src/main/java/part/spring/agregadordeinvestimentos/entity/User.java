@@ -11,23 +11,18 @@ import java.util.UUID;
 @Table(name = "tb_users")
 public class User {
 
-    //Aqui ele irá usar o user id como um identificador (uma primary key)
     @Id
-
-    //Aqui ele irá gerar um Id automaticamente
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID userId;
 
-    //Com esse @Column ele identifica quem é quem no banco de dados
     @Column(name = "username")
     private String username;
-
-    @Column(name = "password")
-    private String password;
 
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
 
     @CreationTimestamp
     private Instant creationTimestamp;
@@ -35,20 +30,16 @@ public class User {
     @UpdateTimestamp
     private Instant updateTimestamp;
 
-
-
-    //Criação dos Construtores
-
-    public User(UUID userId, String username, String password, String email, Instant now, Object o) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.creationTimestamp = creationTimestamp;
-        updateTimestamp = updateTimestamp;
+    public User() {
     }
 
-    public User() {
+    public User(UUID userId, String username, String email, String password, Instant creationTimestamp, Instant updateTimestamp) {
+        this.userId = userId;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.creationTimestamp = creationTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 
     public UUID getUserId() {
@@ -67,20 +58,20 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Instant getCreationTimestamp() {
@@ -96,9 +87,6 @@ public class User {
     }
 
     public void setUpdateTimestamp(Instant updateTimestamp) {
-        updateTimestamp = updateTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 }
-/*Esse aqui foi o primeiro passo, criar a entidade user e depois os construtores
-Agora é criar o Controller
-*/
